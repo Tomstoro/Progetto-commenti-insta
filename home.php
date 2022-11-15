@@ -10,7 +10,7 @@
             <a href="#"><img src="images/commenti_logo.png" alt="commenti" title="COMMENTI" height="22px" width="22px"></a>
             <p>Descrizione del post</p>
         </div>
-    </div>
+    </div> 
     <div class="card">
         <img src="img_avatar.png" alt="Avatar" style="width:100%">
         <div class="container">
