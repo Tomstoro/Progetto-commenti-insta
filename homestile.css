@@ -38,6 +38,7 @@ body{
     background-color: rgb(17, 17, 17);
     top: 0;
     color: rgb(228, 223, 223);
+    overflow-y: auto;
 }
 
 .card { 
@@ -49,6 +50,14 @@ body{
     
 }
 
+#post{
+    display: block;
+    margin: auto;
+    padding-bottom: 10px;
+    width: 240px;
+    height: 250px;
+}
+
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -56,4 +65,14 @@ body{
 .container {
     color: rgb(228, 223, 223);  
     padding: 2px 16px;
+}
+
+#nomeutente{
+    border: 2px solid rgb(190, 188, 188);
+    padding: 2px;
+}
+
+#descrizione{
+    border-top:  2px solid rgb(190, 188, 188);
+    padding-top: 2px;
 }
