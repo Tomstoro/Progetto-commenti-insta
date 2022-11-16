@@ -1,6 +1,9 @@
 <?php 
 // Include the database configuration file  
 require_once '_db_dal_inc.php'; 
+$conn=db_connect();
+
+$user=($_POST['user']);
 
 // If file upload form is submitted 
 $status = $statusMsg = ''; 
@@ -18,7 +21,7 @@ if(isset($_POST["submit"])){
             $imgContent = addslashes(file_get_contents($image)); 
 
             // Insert image content into database 
-            $insert = $db->query("INSERT into utente (image) VALUES ('$imgContent')"); 
+            $insert = $conn->query("UPDATE utente set Pro_pic='$imgContent' WHERE user='$user'"); 
 
             if($insert){ 
                 $status = 'success'; 

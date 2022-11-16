@@ -1,4 +1,10 @@
 <?php require("_home_header.php");?>
+
+<?php
+if(array_key_exists('user',$_GET))
+    $user=($_GET['user']);
+?>
+
 <body>
 <div id="left-navbar">
 </div>
@@ -23,8 +29,7 @@
 <div id="right-navbar">
     <a href="home.php"><img src="images/home_logo.png" alt="home" width="120px" height="120px" title="HOME"></a>
     <a href="#"><img src="images/cerca_logo.png" alt="cerca" width="65px" height="65px" title="CERCA"></a>
-    <a href="profilo.php"><img src="" alt="profilo" title="PROFILO"></a>
+    <a href="profilo.php?user=<?=$user?>"><?php require('view.php')?></a>
 </div>
     </body>
-    dsds
 </html>

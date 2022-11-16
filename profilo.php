@@ -1,3 +1,8 @@
+<?php
+if(array_key_exists('user',$_GET))
+    $user=($_GET['user']);
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,14 +16,15 @@
     <body>
     <div id="left-navbar">
     <a href="home.php"><img src="images/home_logo.png" alt="home" width="120px" height="120px" title="HOME"></a>
-    <a href="#"><img src="images/cerca_logo.png" alt="cerca" width="65px" height="65px" title="CERCA"></a>
+    <a href="view.php"><img src="images/cerca_logo.png" alt="cerca" width="65px" height="65px" title="CERCA"></a>
     <a href="#"><?php require('view.php')?></a>
 
     <form action="upload.php" method="post" enctype="multipart/form-data">
     <label>Select Image File:</label>
     <input type="file" name="image">
+    <input type="text" name="user" value="<?=$user?>" hidden>
     <input type="submit" name="submit" value="Cambia foto profilo">
     </form>
-</div>
+    </div>
     </body>
 </html>

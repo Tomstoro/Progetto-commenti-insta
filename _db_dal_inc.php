@@ -42,3 +42,4 @@ if(mysqli_num_rows($sql)>0)
         echo "Registrazione completata";
         return $conn->query($qr);
 }
+
