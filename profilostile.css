@@ -12,8 +12,9 @@ body{
 }
 
 form{
-    width: 100%;
-    padding-left: 150px;
+    width: 50%;
+    margin: auto;
+    color: white;
 }
 
 #left-navbar img{
@@ -21,6 +22,16 @@ form{
     display: block;
     margin-top: 50px;
     margin-bottom: 30px;
+}
+
+input{
+    border: 3px solid rgb(46, 45, 45);
+    border-radius: 5px;
+}
+
+input:hover{
+    background-color: rgb(210, 201, 201);
+    color: black;
 }
 
 label{

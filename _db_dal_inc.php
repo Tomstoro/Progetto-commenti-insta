@@ -43,3 +43,15 @@ if(mysqli_num_rows($sql)>0)
         return $conn->query($qr);
 }
 
+//region
+function get_pro_pic($conn,$user)
+{
+    $imageresult1 = mysqli_query($conn,"SELECT Pro_pic FROM utente where `user` = '$user'");
+    
+    while($rows = mysqli_fetch_assoc($imageresult1))
+    {       
+        $image = $rows['Pro_pic'];    
+        return $image;
+    }
+}
+//endregion
