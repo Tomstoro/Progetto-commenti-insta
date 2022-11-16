@@ -8,6 +8,6 @@ $psw=$_GET["psw"];
 
 $conn=db_connect();
 
-$result=verify($conn,$user,$psw);
+verify($conn,$user,$psw);
 
 ?>
