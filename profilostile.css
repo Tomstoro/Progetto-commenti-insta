@@ -1,0 +1,23 @@
+body{
+    font-size: medium;
+}
+
+#left-navbar{
+    height: 100%;
+    position: fixed;
+    width: 20%;
+    background-color:black;
+    left: 0;
+    top: 0;
+}
+
+#left-navbar img{
+    margin: auto;
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+label{
+    color: white;
+}
