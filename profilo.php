@@ -1,6 +1,6 @@
 <?php
 if(array_key_exists('user',$_GET))
-    $user=($_GET['user']);
+    $user=$_GET['user'];
 
 require_once('_db_dal_inc.php');
 $conn=db_connect();
@@ -14,7 +14,7 @@ $conn=db_connect();
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="profilostile.css">
+        <link rel="stylesheet" href="stileprofilo.css">
     </head>
     <body>
     
@@ -29,7 +29,7 @@ $conn=db_connect();
     <?php $sql = "SELECT Pro_pic FROM utente WHERE user = '$user'";
     $sth = $conn->query($sql);
     $result=mysqli_fetch_array($sth);
-    echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['Pro_pic'] ).'"/>'; 
+    echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['Pro_pic'] ).'" id="pro_pic"/>'; 
     ?>
     </a>
     
