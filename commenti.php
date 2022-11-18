@@ -31,7 +31,7 @@ $result = $conn->query($sql);
     <a href="home.php?user=<?=$user?>"><img src="./images/freccia_logo.png" alt="indietro" title="INDIETRO" width="100px" height="80px"></a>
     <p>TORNA ALLA HOME</p>
 
-    <form id="commenta" action="_aggiungi_commento.php" style="padding-top:20px ;">
+    <form id="commenta" action="_aggiungi_commento.php" style="padding-top:20px ;" >
         <label for="new_commento">Aggiungi commento</label> <br> <br>
         <input type="text" name="new_commento" value="" title="Commenta anche tu!" placeholder="Commenta...">
         <input type="text" name="idP" value="<?=$idP?>" hidden>

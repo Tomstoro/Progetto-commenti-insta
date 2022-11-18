@@ -27,9 +27,12 @@ $conn=db_connect();
     <?php $sql = "SELECT Pro_pic FROM utente WHERE user = '$user'";
     $sth = $conn->query($sql);
     $result=mysqli_fetch_array($sth);
+    if($result['Pro_pic']!=null)
     echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['Pro_pic'] ).'" id="pro_pic""/>'; 
+    echo "PROFILO";
     ?>
     </a>
+    <a href="index.php"><img src="" alt="LOG-OUT"></a>
 </div>
 
     </body>

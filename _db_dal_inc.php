@@ -19,8 +19,8 @@ function verify($conn,$user,$psw)
 {
     $user=$conn->real_escape_string($user);
     $psw=$conn->real_escape_string($psw);
-    $sql=mysqli_query($conn,"SELECT * FROM utente where password='$psw' && user='$user'");
-    if(mysqli_num_rows($sql)>0)
+    $hash=password_hash($psw, PASSWORD_BCRYPT);
+    if(password_verify($psw,$hash))
     {
         require("home.php");
     }
@@ -31,6 +31,7 @@ function sign_up($conn,$user,$email,$psw)
 {
     $user=$conn->real_escape_string($user);
     $psw=$conn->real_escape_string($psw);
+    $psw=password_hash($psw, PASSWORD_BCRYPT);
     $email=$conn->real_escape_string($email);
     $sql=mysqli_query($conn,"SELECT * FROM utente where email='$email' or user='$user'");
 if(mysqli_num_rows($sql)>0)
