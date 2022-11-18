@@ -25,5 +25,4 @@ while($row=$result->fetch_assoc()){  ?>
     </div> 
 <?php
 }?>
-</table>
 <?php    }?>

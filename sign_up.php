@@ -2,7 +2,7 @@
 <body>
         <div id="logo_sito"><img src="logo.png" alt="logo"></div>
         <div>
-        <form method="get" action="registra.php" >
+        <form method="get" action="_registra.php" >
             <label>Inserisci i dati per registrarti</label> <br>     <!-- le label sono inline elements, metto display block e poi text align -->
             <input type="text" name="user" value="" placeholder="Username" required>
             <br>

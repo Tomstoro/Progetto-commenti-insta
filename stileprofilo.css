@@ -11,7 +11,7 @@ body{
     top: 0;
 }
 
-form{
+#upload{
     width: 50%;
     margin: auto;
     color: white;
@@ -43,4 +43,21 @@ label{
     width: 150px;
     height: 150px;
     border-radius: 50%;
+}
+
+#dati_utente{
+    width: 75%;
+    right: 0;
+    background-color: rgb(17, 17, 17);
+    position: fixed;
+    height: 100%;
+    top: 0;
+}
+
+#form_dati{
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding:10px;
+    margin: auto;
 }

@@ -36,12 +36,16 @@ $conn=db_connect();
     
 
     <!--FORM PER CAMBIARE FOTO PROFILO-->
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="_upload.php" method="post" enctype="multipart/form-data" id="upload">
     <label>CAMBIA IMMAGINE PROFILO:</label> <br> <br>
     <input type="file" name="image" title="File da caricare"> <br> <br>
     <input type="text" name="user" value="<?=$user?>" hidden>
     <input type="submit" name="submit" value="Cambia foto profilo" title="Cambia">
     </form>
+    </div>
+
+    <div id="dati_utente">
+        <?php require('_display_info_utente.php')?>
     </div>
     </body>
 </html>

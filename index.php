@@ -2,7 +2,7 @@
     <body>
         <div id="logo_sito"><img src="images/logo.png" alt="logo"></div>
         <div>
-        <form method="get" action="verifica.php" >
+        <form method="get" action="_verifica.php" >
             <label>Inserisci dati per accedere</label> <br>     <!-- le label sono inline elements, metto display block e poi text align -->
             <input type="text" name="user" value="" placeholder="Username o Email" required>
             <br>
