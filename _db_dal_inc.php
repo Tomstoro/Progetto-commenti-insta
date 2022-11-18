@@ -43,15 +43,11 @@ if(mysqli_num_rows($sql)>0)
         return $conn->query($qr);
 }
 
-//region
-function get_pro_pic($conn,$user)
+function add_commento($conn,$user,$idP,$contenuto)
 {
-    $imageresult1 = mysqli_query($conn,"SELECT Pro_pic FROM utente where `user` = '$user'");
-    
-    while($rows = mysqli_fetch_assoc($imageresult1))
-    {       
-        $image = $rows['Pro_pic'];    
-        return $image;
-    }
+    $user=$conn->real_escape_string($user);
+    $idP=$conn->real_escape_string($idP);
+    $contenuto=$conn-> real_escape_string($contenuto);
+    $sql=mysqli_query($conn,"INSERT INTO `commento` (`contenuto`, `idP`, `user`) VALUES ('$contenuto','$idP','$user')");
+    $conn->query($sql);
 }
-//endregion
