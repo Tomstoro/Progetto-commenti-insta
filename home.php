@@ -8,9 +8,42 @@ require_once('_db_dal_inc.php');
 $conn=db_connect();
 ?>
 
-<body>
-<div id="left-navbar">
+<?php $sql = "SELECT COUNT(idC) as ncom from commento GROUP BY idP";
+            $result = $conn->query($sql); 
+            if($result->num_rows>0){
+                $row=$result->fetch_assoc();
+    } ?>
 
+<body>
+    <!--GRAFICO COMMENTI ULTIMI 20 POST-->
+<div id="left-navbar">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <canvas id="myChart" style="width:100%;max-width:70%"></canvas>
+        <script>
+            var xValues=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+            var yValues= <?=$row['ncom']?>;
+            
+            new Chart("myChart", {
+                type: "line",
+data: {
+    labels: xValues,
+    datasets: [{
+    fill: false,
+    lineTension: 0,
+    backgroundColor: "rgba(0,0,255,1.0)",
+    borderColor: "rgba(0,0,255,0.1)",
+    data: yValues
+    }]
+},
+options: {
+    legend: {display: false},
+    scales: {
+    yAxes: [{ticks: {min: 0, max: 100}}],
+    }
+}
+            });
+        </script>
 </div>
 
 <!--DISPLAY DEI POST-->
