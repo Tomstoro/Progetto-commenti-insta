@@ -25,18 +25,20 @@ if(isset($_POST["submit"])){
 
             if($insert){ 
                 $status = 'success'; 
-                $statusMsg = "File uploaded successfully."; 
+                $statusMsg = "Immagine caricata con successo."; 
             }else{ 
-                $statusMsg = "File upload failed, please try again."; 
+                $statusMsg = "Errore nel caricamento dell'immagine, per favore riprovare."; 
             }  
         }else{ 
-            $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+            $statusMsg = 'Mi dispiace, solo file JPG, JPEG, PNG, & GIF possono esssere caricati.'; 
         } 
     }else{ 
-        $statusMsg = 'Please select an image file to upload.'; 
+        $statusMsg = 'Per favore selezionare un immagine da caricare.'; 
     } 
 } 
 
 // Display status message 
 echo $statusMsg; 
 ?>
+<br>
+<a href="profilo.php?user=<?=$user?>">Torna al profilo</a>

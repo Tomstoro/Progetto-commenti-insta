@@ -9,7 +9,7 @@ function db_connect()
     $conn=new mysqli($servername,$username,$password,$dbname);
 
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die("Connessione fallita: " . $conn->connect_error);
 }
 
     return $conn;
@@ -47,7 +47,7 @@ if(mysqli_num_rows($sql)>0)
 function add_commento($conn,$user,$idP,$contenuto)
 {
     $user=$conn->real_escape_string($user);
-    $idP=$conn->real_escape_string($idP);
+    $idP=intval($idP);
     $contenuto=$conn-> real_escape_string($contenuto);
     $sql=mysqli_query($conn,"INSERT INTO `commento` (`contenuto`, `idP`, `user`) VALUES ('$contenuto','$idP','$user')");
     $conn->query($sql);

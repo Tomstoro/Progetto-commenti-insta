@@ -12,3 +12,5 @@ add_commento($conn,$user,$idP,$contenuto);
 echo "Commento pubblicato!!!";
 
 ?>
+
+<a href="home.php?user=<?=$user?>">Torna alla home</a>

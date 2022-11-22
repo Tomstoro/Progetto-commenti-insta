@@ -11,40 +11,56 @@ $conn=db_connect();
 <?php $sql = "SELECT COUNT(idC) as ncom from commento GROUP BY idP";
             $result = $conn->query($sql); 
             if($result->num_rows>0){
-                $row=$result->fetch_assoc();
+                $ncom=array();
+                while($row=$result->fetch_assoc())
+                {
+                $ncom[]= $row["ncom"];
+                }
     } ?>
 
 <body>
     <!--GRAFICO COMMENTI ULTIMI 20 POST-->
 <div id="left-navbar">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
-    <canvas id="myChart" style="width:100%;max-width:70%"></canvas>
-        <script>
-            var xValues=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-            var yValues= <?=$row['ncom']?>;
-            
-            new Chart("myChart", {
-                type: "line",
-data: {
-    labels: xValues,
-    datasets: [{
-    fill: false,
-    lineTension: 0,
-    backgroundColor: "rgba(0,0,255,1.0)",
-    borderColor: "rgba(0,0,255,0.1)",
-    data: yValues
-    }]
-},
-options: {
-    legend: {display: false},
-    scales: {
-    yAxes: [{ticks: {min: 0, max: 100}}],
-    }
-}
-            });
-        </script>
+<canvas id="myChart" height="700px"></canvas>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+// Setup block
+const ncom=<?php echo json_encode($ncom);?>;
+const data={
+labels: ['Post1', 'Post2', 'Post3', 'Post4', 'Post5'],
+    datasets: [{
+        label: 'Numero di commenti',
+        data: ncom,
+        borderWidth: 1
+    }]
+};
+
+// COnfig block
+
+const config={
+    type: 'bar',
+    data,
+    options: {
+    scales: {
+        y: {
+        beginAtZero: true
+        }
+    }
+    }
+};
+
+//render block
+const myChart =new Chart(
+document.getElementById('myChart'),
+config
+);
+
+</script>
+
 
 <!--DISPLAY DEI POST-->
 <div id="centro">
@@ -65,9 +81,8 @@ options: {
     echo "PROFILO";
     ?>
     </a>
-    <a href="index.php"><img src="" alt="LOG-OUT"></a>
+    <a href="index.php"><img src="./images/log_out.png" alt="LOG-OUT" width="70px" height="70px" title="LOG-OUT"></a>
 </div>
-
     </body>
 </html>
 <? $conn->close();?>
