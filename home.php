@@ -3,6 +3,7 @@
 <?php
 if(array_key_exists('user',$_GET))
     $user=$_GET['user'];
+else {$user=null;}
 
 require_once('_db_dal_inc.php');
 $conn=db_connect();
@@ -39,8 +40,7 @@ labels: ['Post1', 'Post2', 'Post3', 'Post4', 'Post5'],
     }]
 };
 
-// COnfig block
-
+// Config block
 const config={
     type: 'bar',
     data,
@@ -69,19 +69,23 @@ config
 
 <!--NAVBAR DESTRA CON FOTO PROFILO E LINK UTILI-->
 <div id="right-navbar">
-    <a href="home.php?user=<?=$user?>"><img src="images/home_logo.png" alt="home" width="120px" height="120px" title="HOME"></a>
-    <a href="#"><img src="images/cerca_logo.png" alt="cerca" width="65px" height="65px" title="CERCA"></a>
+    <a href="home.php?user=<?=$user?>"><img src="images/home_logo.png" alt="home" title="HOME" id="home_img"><p>HOME</p> </a>
+    <a href="#"><img src="images/cerca_logo.png" alt="cerca" title="CERCA" id="cerca_img"><p>CERCA</p></a>
     
     <a href="profilo.php?user=<?=$user?>" title="PROFILO">
-    <?php $sql = "SELECT Pro_pic FROM utente WHERE user = '$user'";
-    $sth = $conn->query($sql);
-    $result=mysqli_fetch_array($sth);
-    if($result['Pro_pic']!=null)
-    echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['Pro_pic'] ).'" id="pro_pic""/>'; 
-    echo "PROFILO";
+    <?php 
+    if($user!=null)
+    {
+        $sql = "SELECT Pro_pic FROM utente WHERE user = '$user'";
+        $sth = $conn->query($sql);
+        $result=mysqli_fetch_array($sth);
+        if($result['Pro_pic']!=null)
+        echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['Pro_pic'] ).'" id="pro_pic""/>'; 
+    }
     ?>
+    <p>PROFILO</p>
     </a>
-    <a href="index.php"><img src="./images/log_out.png" alt="LOG-OUT" width="70px" height="70px" title="LOG-OUT"></a>
+    <a href="index.php"><img src="./images/log_out.png" alt="LOG-OUT" title="LOG-OUT" id="logout_img"><p>LOG-OUT</p></a>
 </div>
     </body>
 </html>

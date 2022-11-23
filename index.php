@@ -12,6 +12,8 @@
             <hr>
             <div id="sign_up" >
             Non hai un account? <a href="sign_up.php">Sign Up</a>
+    <br> <br>
+            Vuoi accedere in sola visualizzazione? <a href="home.php">Accedi</a>
             </div>
         </form>
         </div>

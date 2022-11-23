@@ -9,7 +9,6 @@ $idP=intval($_GET['idP']);
 $contenuto=$_GET['new_commento'];
 
 add_commento($conn,$user,$idP,$contenuto);
-echo "Commento pubblicato!!!";
 
 ?>
 

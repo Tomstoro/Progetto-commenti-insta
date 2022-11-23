@@ -46,9 +46,15 @@ if(mysqli_num_rows($sql)>0)
 
 function add_commento($conn,$user,$idP,$contenuto)
 {
-    $user=$conn->real_escape_string($user);
-    $idP=intval($idP);
-    $contenuto=$conn-> real_escape_string($contenuto);
-    $sql=mysqli_query($conn,"INSERT INTO `commento` (`contenuto`, `idP`, `user`) VALUES ('$contenuto','$idP','$user')");
-    $conn->query($sql);
+    if($user!=null)
+    {
+        $user=$conn->real_escape_string($user);
+        $idP=intval($idP);
+        $contenuto=$conn-> real_escape_string($contenuto);
+        $sql=mysqli_query($conn,"INSERT INTO `commento` (`contenuto`, `idP`, `user`) VALUES ('$contenuto','$idP','$user')");
+        $conn->query($sql);
+        echo "Commento pubblicato";
+    }
+    else {echo "Non è possibile commentare se non si è iscritti al sito web";}
+
 }
