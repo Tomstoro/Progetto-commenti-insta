@@ -21,8 +21,8 @@ $conn=db_connect();
 
 <body>
     <!--GRAFICO COMMENTI ULTIMI 20 POST-->
-<div id="left-navbar">
-<canvas id="myChart" height="700px"></canvas>
+<div id="left-sidebar">
+<canvas id="myChart"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -68,7 +68,7 @@ config
 </div>
 
 <!--NAVBAR DESTRA CON FOTO PROFILO E LINK UTILI-->
-<div id="right-navbar">
+<div id="right-sidebar">
     <a href="home.php?user=<?=$user?>"><img src="images/home_logo.png" alt="home" title="HOME" id="home_img"><p>HOME</p> </a>
     <a href="#"><img src="images/cerca_logo.png" alt="cerca" title="CERCA" id="cerca_img"><p>CERCA</p></a>
     

@@ -1,32 +1,25 @@
-body{
+body {
+    margin: 0;
     font-size: medium;
 }
 
-#left-navbar{
-    height: 100%;
-    position: fixed;
+#right-sidebar {
+    margin: 0;
+    padding: 0;
     width: 20%;
-    background-color:black;
-    left: 0;
-    top: 0;
-}
-
-#right-navbar{
-    height: 100%;
-    position: fixed;
-    width: 20%;
-    right: 0;
     background-color: black;
-    top: 0;
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+    right: 0;
     text-align: center;
-    color: rgb(228, 223, 223);
 }
 
-#right-navbar img{
+#right-sidebar img{
     margin-bottom: 50px;
 }
 
-#right-navbar p{
+#right-sidebar p{
     display: none;
 }
 
@@ -84,8 +77,8 @@ body{
     display: block;
     margin: auto;
     padding-bottom: 10px;
-    width: 250px;
-    height: 260px;
+    width: 80%;
+    height: 60%px;
 }
 
 .card:hover {
@@ -113,48 +106,47 @@ a{
     color: white;
 }
 
-@media screen and (max-width: 1100px) {
-    body{
-        font-size: smaller;
-    }
+#left-sidebar {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+}
 
-    #right-navbar{
-        overflow:hidden;
-        margin-top: 0;
-        margin-bottom: 10px;
-        top: 0;
-        color: rgb(228, 223, 223);
-        position: sticky;
-        width: 80%;
-        margin: auto;
-        height: 40px;
-        border: 1px solid rgb(5, 5, 5);
-        border-radius: 10px ;
-    }
+#myChart{
+    height:700px; 
+    width: auto;
+}
 
-    #right-navbar img{
+@media screen and (max-width: 900px) {
+    #right-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    }
+    #right-sidebar img{
         display: none;
     }
-    #right-navbar a{
+    #right-sidebar a{
         display: inline;
         padding:20px;
         margin-top: 50%;
     }
-
-    #right-navbar p{
+    #right-sidebar p{
         display: inline-block;
     }
-    
     #centro{
         width: 100%;
-        height: 100%;
+        height:80%;
         right: 0;
         left: 0;
         background-color: rgb(17, 17, 17);
         color: rgb(228, 223, 223);
         overflow-y: auto;
     }
-
     .card { 
         margin-top: 50px;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -162,24 +154,27 @@ a{
         width: 40%;
         border: 1px solid white;
     }
-    
     .card:hover {
         box-shadow: 0 15px 30px 0 rgb(0, 0, 0);
     }
-
     #post{
         display: block;
         margin: auto;
         padding-bottom: 10px;
-        width: 70%;
-        height: 40%;
+        width: 60%;
+        height: 80%;
     }
 
-    #left-navbar{
-        display: none;
+    #left-sidebar{
+        position: absolute;
+        width: 100%;
+        height: 20%;
+        bottom: 0;
     }
-    
     #myChart{
-        display: none; 
+        height:40vh; 
+        width:80vw;
+        margin: auto;
     }
+
 }

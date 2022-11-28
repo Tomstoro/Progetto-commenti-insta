@@ -9,11 +9,12 @@ body {
 
 #logo_sito img{
     padding-bottom: 25px;
-    width: 150px;
-    height: 100px;
+    width: 30%;
+    height: 25%;
     display: block;
     margin: auto;
 }
+
 
 a{
     text-decoration: none;
@@ -97,5 +98,10 @@ footer{
     
     #foot a{
         display: none;
+    }
+
+    #logo_sito img{
+        width: 250px;
+        height: 170px;
     }
 }
