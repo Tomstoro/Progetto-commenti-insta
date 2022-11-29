@@ -2,8 +2,9 @@
 <body>
         <div id="logo_sito"><img src="./images/logo.png" alt="logo"></div>
         <div>
+        <?php /*SIGNUP FORM*/ ?>
         <form method="get" action="_registra.php" >
-            <label>Inserisci i dati per registrarti</label> <br>     <!-- le label sono inline elements, metto display block e poi text align -->
+            <label>Inserisci i dati per registrarti</label> <br>   
             <input type="text" name="user" value="" placeholder="Username" required>
             <br>
             <input type="text" name="email" value="" placeholder="Indirizzo Email" required>

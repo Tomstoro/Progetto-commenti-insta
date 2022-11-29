@@ -18,13 +18,13 @@ $conn=db_connect();
     </head>
     <body>
     
-    <!--NAVBAR SINISTRA CON LINK ALLE PAGINE-->
+    <?php /*NAVBAR SINISTRA CON LINK ALLE PAGINE*/?>
     <div id="left-navbar"> 
     <a href="home.php?user=<?=$user?>"><img src="images/home_logo.png" alt="home" width="120px" height="120px" title="HOME"></a>
     <a href="#"><img src="images/cerca_logo.png" alt="cerca" width="65px" height="65px" title="CERCA"></a>
     
 
-    <!--DISPLAY DELL'IMMAGINE PROFILO DAL DB-->
+    <?php /*DISPLAY DELL'IMMAGINE PROFILO DAL DB*/?>
     <a href="profilo.php?user=<?=$user?>" title="PROFILO">  
     <?php $sql = "SELECT Pro_pic FROM utente WHERE user = '$user'";
     $sth = $conn->query($sql);
@@ -35,7 +35,7 @@ $conn=db_connect();
     </a>
     
 
-    <!--FORM PER CAMBIARE FOTO PROFILO-->
+    <?php /*FORM PER CAMBIARE FOTO PROFILO*/?>
     <form action="_upload.php" method="post" enctype="multipart/form-data" id="upload">
     <label>CAMBIA IMMAGINE PROFILO:</label> <br> <br>
     <input type="file" name="image" title="File da caricare"> <br> <br>

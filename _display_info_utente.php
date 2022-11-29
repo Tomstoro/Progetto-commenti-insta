@@ -7,10 +7,10 @@ if(array_key_exists('user',$_GET))
 
 $conn= $conn= db_connect();
 
+/*DISPLAY DELLE INFO UTENTE*/
 $sql= "SELECT  * from utente where user='$user'";
 $result = $conn->query($sql);
 ?>
-
 <?php if($result->num_rows>0){
 while($row=$result->fetch_assoc()){  ?>
     <form id="form_dati" style="text-align: center; margin-top: 50px;" action="_cambia_dati_utente.php">

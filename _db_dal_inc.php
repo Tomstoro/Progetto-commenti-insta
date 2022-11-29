@@ -15,18 +15,26 @@ function db_connect()
     return $conn;
 }
 
+/*VERIFICA DELLA PASSWORD*/
 function verify($conn,$user,$psw)
 {
     $user=$conn->real_escape_string($user);
     $psw=$conn->real_escape_string($psw);
-    $hash=password_hash($psw, PASSWORD_BCRYPT);
-    if(password_verify($psw,$hash))
+    $sql=mysqli_query($conn,"SELECT password FROM utente where user='$user'");
+    if($sql->num_rows>0)
     {
-        require("home.php");
+        $row=$sql->fetch_assoc();
+        if(password_verify($psw,$row['password']))
+        {
+            require("home.php");
+        }
+        else{ echo "Credenziali errate o inesistenti, riprovare"; exit;}
     }
-    else{ echo "Credenziali errate o inesistenti, riprovare"; exit;}
+    else{echo "Registrati Prima di accedere!!";}
+    
 }
 
+/*REGISTRAZIONE*/
 function sign_up($conn,$user,$email,$psw)
 {
     $user=$conn->real_escape_string($user);
@@ -40,10 +48,10 @@ if(mysqli_num_rows($sql)>0)
 	exit;
 }
         $qr="INSERT INTO `utente`(`user`, `email`, `password`) VALUES ('$user','$email','$psw')";
-        echo "Registrazione completata";
         return $conn->query($qr);
 }
 
+/*AGGIUNGI COMMENTO*/
 function add_commento($conn,$user,$idP,$contenuto)
 {
     if($user!=null)

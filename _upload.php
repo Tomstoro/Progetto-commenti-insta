@@ -1,11 +1,10 @@
 <?php 
-// Include the database configuration file  
 require_once '_db_dal_inc.php'; 
 $conn=db_connect();
 
 $user=($_POST['user']);
 
-// If file upload form is submitted 
+// SE IL FORM VIENE SUBMITTATO
 $status = $statusMsg = ''; 
 if(isset($_POST["submit"])){ 
     $status = 'error'; 
@@ -14,13 +13,13 @@ if(isset($_POST["submit"])){
         $fileName = basename($_FILES["image"]["name"]); 
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
 
-        // Allow certain file formats 
+        // PERMETTO SOLO ALCUNI FORMAT DI FILE
         $allowTypes = array('jpg','png','jpeg','gif'); 
         if(in_array($fileType, $allowTypes)){ 
             $image = $_FILES['image']['tmp_name']; 
             $imgContent = addslashes(file_get_contents($image)); 
 
-            // Insert image content into database 
+            // INSERISCO L'IMMAGINE
             $insert = $conn->query("UPDATE utente set Pro_pic='$imgContent' WHERE user='$user'"); 
 
             if($insert){ 
@@ -37,7 +36,7 @@ if(isset($_POST["submit"])){
     } 
 } 
 
-// Display status message 
+// DISPLAY DEL MESSAGGIO
 echo $statusMsg; 
 ?>
 <br>

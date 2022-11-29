@@ -20,7 +20,7 @@ $conn=db_connect();
     } ?>
 
 <body>
-    <!--GRAFICO COMMENTI ULTIMI 20 POST-->
+    <?php /*GRAFICO COMMENTI ULTIMI 20 POST*/?>
 <div id="left-sidebar">
 <canvas id="myChart"></canvas>
 </div>
@@ -62,12 +62,14 @@ config
 </script>
 
 
-<!--DISPLAY DEI POST-->
+<?php /*DISPLAY DEI POST*/ ?>
+
 <div id="centro">
 <?php require_once('_display_post.php')?>
 </div>
 
-<!--NAVBAR DESTRA CON FOTO PROFILO E LINK UTILI-->
+<?php /*NAVBAR DESTRA CON FOTO PROFILO E LINK UTILI*/?>
+
 <div id="right-sidebar">
     <a href="home.php?user=<?=$user?>"><img src="images/home_logo.png" alt="home" title="HOME" id="home_img"><p>HOME</p> </a>
     <a href="#"><img src="images/cerca_logo.png" alt="cerca" title="CERCA" id="cerca_img"><p>CERCA</p></a>
@@ -81,10 +83,9 @@ config
         $result=mysqli_fetch_array($sth);
         if($result['Pro_pic']!=null)
         echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['Pro_pic'] ).'" id="pro_pic""/>'; 
-        ?> <p>PROFILO</p> <?php  
+        ?><p style="display: block;">PROFILO</p> <?php  
     }
     ?>
-    
     </a>
     <a href="index.php"><img src="./images/log_out.png" alt="LOG-OUT" title="LOG-OUT" id="logout_img"><p>LOG-OUT</p></a>
 </div>
