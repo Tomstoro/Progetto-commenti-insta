@@ -14,9 +14,7 @@ $result = $conn->query($sql);
 <?php if($result->num_rows>0){
 while($row=$result->fetch_assoc()){  ?>
     <form id="form_dati" style="text-align: center; margin-top: 50px;" action="_cambia_dati_utente.php">
-        <input type="text" name="psw" value="<?=$row['password']?>" hidden>
-        <label for="user">Username</label>  
-        <input type="text" name="user" value="<?=$row['user']?>" title="Nome Utente" disabled > <br><br>
+        <input type="text" name="user" value="<?=$row['user']?>" title="Nome Utente" hidden > <br><br>
         <label for="user">Email</label>
         <input type="text" name="email" value="<?=$row['email']?>" title="Email"> <br><br>
         <label for="bio">Biografia</label><br>

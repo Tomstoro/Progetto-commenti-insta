@@ -74,21 +74,26 @@ config
     <a href="home.php?user=<?=$user?>"><img src="images/home_logo.png" alt="home" title="HOME" id="home_img"><p>HOME</p> </a>
     <a href="#"><img src="images/cerca_logo.png" alt="cerca" title="CERCA" id="cerca_img"><p>CERCA</p></a>
     
+    <?php //CONDIZIONI DI DISPLAY PER IMMAGINE PROFILO E COME ACCEDERE AL PROFILO SE L'IMMAGINE NON ESISTE//?>
     <?php 
     if($user!=null)
     {
-        ?><a href="profilo.php?user=<?=$user?>" title="PROFILO"> <?php 
         $sql = "SELECT Pro_pic FROM utente WHERE user = '$user'";
         $sth = $conn->query($sql);
         $result=mysqli_fetch_array($sth);
         if($result['Pro_pic']!=null)
-        echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['Pro_pic'] ).'" id="pro_pic""/>'; 
-        ?><p style="display: block;">PROFILO</p> <?php  
-    }
-    ?>
-    </a>
+        {
+            ?><a href="profilo.php?user=<?=$user?>" title="PROFILO"> <?php 
+        echo '<img alt="PROFILO" src="data:image/jpeg;base64,'.base64_encode( $result['Pro_pic'] ).'" id="pro_pic""/>'; 
+        ?><?php
+        }
+        else if ($result['Pro_pic']==null) 
+        {
+            ?> <a href="profilo.php?user=<?=$user?>" title="PROFILO">PROFILO </a> <?php
+        } ?> <?php
+    }?>
+
     <a href="index.php"><img src="./images/log_out.png" alt="LOG-OUT" title="LOG-OUT" id="logout_img"><p>LOG-OUT</p></a>
 </div>
     </body>
 </html>
-<? $conn->close();?>

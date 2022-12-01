@@ -15,8 +15,9 @@ body {
     text-align: center;
 }
 
-#right-sidebar img{
+#right-sidebar a{
     margin-bottom: 50px;
+    display: block;
 }
 
 #right-sidebar p{
@@ -42,8 +43,9 @@ body {
     width: 43%;
     height: 18%;
     border-radius: 50%;
+    display: block;
+    margin: auto;
 }
-
 
 #logout_img{
     width: 35%;
@@ -125,18 +127,24 @@ a{
     #right-sidebar {
     width: 100%;
     height: auto;
-    position: relative;
+    position: absolute;
     }
     #right-sidebar img{
         display: none;
     }
     #right-sidebar a{
         display: inline;
-        padding:20px;
-        margin-top: 50%;
+        padding-left: 15px;
+        margin-top: 5px;
     }
+
+    #right-sidebar a:hover{
+        background-color: white;
+        color: rgb(17, 17, 17);
+    }
+
     #right-sidebar p{
-        display: inline-block;
+        display: inline;
     }
     #centro{
         width: 100%;
