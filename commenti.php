@@ -28,8 +28,8 @@ $result = $conn->query($sql);
     </head>
     <body>
     <div id="left-navbar">
-    <a href="home.php?user=<?=$user?>"><img src="./images/freccia_logo.png" alt="indietro" title="INDIETRO" width="100px" height="80px"></a>
-    <p>TORNA ALLA HOME</p>
+    <a href="home.php?user=<?=$user?>"><img src="./images/freccia_logo.png" alt="indietro" title="INDIETRO" width="100px" height="80px">TORNA ALLA HOME</a>
+    
 
     <?php /*FORM PER COMMENTARE*/?>
     <form id="commenta" action="_aggiungi_commento.php" style="padding-top:20px ;" >

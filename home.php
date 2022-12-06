@@ -20,7 +20,7 @@ $conn=db_connect();
     } ?>
 
 <body>
-    <?php /*GRAFICO COMMENTI ULTIMI 20 POST*/?>
+    <?php /*GRAFICO COMMENTI ULTIMI 5 POST*/?>
 <div id="left-sidebar">
 <canvas id="myChart"></canvas>
 </div>

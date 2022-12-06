@@ -55,3 +55,19 @@ th{
     height: 20px;
     border-radius: 50%;
 }
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 900px) {
+    #left-navbar img{
+        display: none;
+    }
+
+    a:hover{
+        background-color: white;
+        color: rgb(17, 17, 17);
+    }
+}
